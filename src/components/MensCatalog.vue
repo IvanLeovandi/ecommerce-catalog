@@ -1,22 +1,41 @@
 <template>
-    <div class="container">
+    <div class="m-container">
         <div class="card">
-            <div class="card-img">
-                <img :src="products.image" alt="">
+            <div class="m-card-img">
+                <img :src="product.image" alt="">
             </div>
-            <div class="card-desc">
-                <h1>{{ products.title }}</h1>
+            <div class="m-card-desc">
+                <h1>{{ product.title }}</h1>
                 <div class="subheading">
-                    <p>{{ products.category }}</p>
-                    <span>{{ products.rating }}/5</span>
+                    <p>{{ product.category }}</p>
+                    <div class="rating">
+                        <span class="rating-value">{{ product.rating.rate }}/5</span>
+                        <!-- dotted rating -->
+                        <span class="rating-dots dot-rating">
+                            <span class="dots up-dot percent m-dot">
+                                <i class="fa-solid fa-circle"></i>
+                                <i class="fa-solid fa-circle"></i>
+                                <i class="fa-solid fa-circle"></i>
+                                <i class="fa-solid fa-circle"></i>
+                                <i class="fa-solid fa-circle"></i>
+                            </span>
+                            <div class="dots down-dot m-dot">
+                                <i class="fa-regular fa-circle"></i>
+                                <i class="fa-regular fa-circle"></i>
+                                <i class="fa-regular fa-circle"></i>
+                                <i class="fa-regular fa-circle"></i>
+                                <i class="fa-regular fa-circle"></i>
+                            </div>
+                        </span>
+                    </div>
                 </div>
                 <hr>
-                <p class="description">{{ products.description }}</p>
+                <p class="description">{{ product.description }}</p>
                 <hr>
-                <h2>${{ products.price }}</h2>
+                <h2>${{ product.price }}</h2>
                 <div class="button">
-                    <a href="#" class="buy">Buy Now</a>
-                    <a href="#" class="next">Next product</a>
+                    <a href="#" class="m-buy">Buy Now</a>
+                    <a href="#" class="m-next" @click.stop="$emit('nextProduct')">Next product</a>
                 </div>
             </div>
         </div>
@@ -26,18 +45,11 @@
 <script>
 export default {
     name: "MensCatalog",
-    data: function() {
-        return {
-            products: [],
-            idx: 0
+    props: {
+        product: {
+        type: Object,
+        required: true
         }
     },
-    mounted: async function() {
-        await fetch('https://fakestoreapi.com/products/1')
-            .then(response => response.json())
-            .then(data => {
-                this.products = data;
-            });
-    }
 }
 </script>

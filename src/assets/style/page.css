@@ -3,6 +3,7 @@
     --w-secondary: #720060;
     --m-primary: #D6E6FF;
     --m-secondary: #002772;
+    --u-primary: #DCDCDC;
     --text-primary: #1E1E1E;
     --text-secondary: #3F3F3F;
 }
@@ -35,10 +36,21 @@ a {
     justify-content: center;
 }
 
-.container {
+.m-container {
     height: 70vh;
-    background-image: url("../mens-bg.svg");
-    background-color: #D6E6FF;
+    background-image: url("../bg.svg");
+    background-color: var(--m-primary);
+}
+
+.w-container {
+    height: 70vh;
+    background-image: url("../bg.svg");
+    background-color: var(--w-primary);
+}
+
+.u-container {
+    height: 70vh;
+    background-color: var(--u-primary);
 }
 
 .card {
@@ -57,27 +69,83 @@ a {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.card-desc {
+.u-card {
+    background-color: white;
+    width: 90%;
+    height: 700px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    margin-left: -45%;
+    top: 50%;
+    margin-top: -210px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.m-card-desc, .w-card-desc {
     width: 700px;
 }
 
-.card-desc h1 {
+.m-card-desc h1 {
     margin-bottom: 20px;
     color: var(--m-secondary);
 }
 
-.card-desc h2 {
+.w-card-desc h1 {
+    margin-bottom: 20px;
+    color: var(--w-secondary);
+}
+
+.m-card-desc h2 {
     margin-top: 16.5px;
     color: var(--m-secondary);
+}
+
+.w-card-desc h2 {
+    margin-top: 16.5px;
+    color: var(--w-secondary);
 }
 
 .subheading {
     display: flex;
     justify-content: space-between;
-    padding-right: 101px;
     margin-bottom: 11px;
     font-size: 18px;
     color: var(--text-secondary);
+}
+
+.m-dot {
+    color: var(--m-secondary)
+}
+
+.w-dot {
+    color: var(--w-secondary)
+}
+
+.rating {
+    position: relative;
+}
+
+.rating-value {
+    position: absolute;
+    right: 100px;
+}
+
+.dots {
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 3px;
+    height: 27px;
+}
+
+.updot {
+    width: 50%;
 }
 
 .description {
@@ -85,21 +153,121 @@ a {
     font-weight: 400px;
     color: var(--text-primary);
     margin: 20px 0px;
+    height: 300px;
 }
 
 .button {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
-.buy {
+.m-buy {
     background-color: var(--m-secondary);
     color: white;
     margin-right: 20px;
 }
 
-.next {
+.m-next {
     background-color: white;
     color: var(--m-secondary);
     border: solid 3px var(--m-secondary);
 }
+
+.w-buy {
+    background-color: var(--w-secondary);
+    color: white;
+    margin-right: 20px;
+}
+
+.w-next {
+    background-color: white;
+    color: var(--w-secondary);
+    border: solid 3px var(--w-secondary);
+}
+
+.u-next {
+    width: 500px;
+    background-color: white;
+    color: black;
+    border: solid 3px black;
+}
+
+.sad-face {
+    margin-top: 30px;
+    display: absolute;
+    width: 80%;
+}
+
+.unavail-text {
+    position: absolute;
+}
+
+.unavail-text p {
+    font-size: 20px;
+}
+
+.skeleton-card-img {
+    width: 500px;
+    height: 530px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-heading {
+    width: 550px;
+    height: 35px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-subheading {
+    margin-bottom: 11px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.skeleton-category {
+    width: 300px;
+    height: 23px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-rate {
+    width: 100px;
+    height: 23px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-description {
+    margin: 20px 0px;
+    height: 300px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-price {
+    margin-top: 16.5px;
+    width: 100px;
+    height: 35px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.skeleton-buy, .skeleton-next {
+    width: 260px;
+    height: 45px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #CBD5E1;
+    }
+
+    50% {
+        background-color: #94A3B8;
+    }
+
+    100% {
+        background-color: #CBD5E1;
+    }
+}
+
+/* responsive soon */
